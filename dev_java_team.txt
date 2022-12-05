@@ -1,0 +1,56 @@
+BluePY
+
+Transferencias X
+Q necesito?
+	el monto.
+		-> elegir mi cuenta de donde se debita
+			
+	datos a quien envio
+		-> un contacto existente
+		-> un nuevo contacto	
+		
+	-> Inmediatas
+	-> Programadas
+	
+Restriccion
+-> Solo se permite transferencia de dinero que esta de manera virtual en nuetra cuenta!
+-> NO se acepta pagos o transferencias con cryptomonedas. Solamente se utilizara como moneda de intercambio/pago billetitos de colores argentinos
+
+endpoint bluepy transferencia ->		reutlizar una que ya existe 			- 					Historico de transferencia
+									    crear una nueva transferencia		    -> Agregar un nuevo contacto con info (cuenta bancaria o billetera)    
+																								/ validar q existe y respete cierto formato
+																			    -> Utilizar ya un contacto ya definido.
+
+
+
+Posibles endpoints
+Retornar historico de transferencia, datos a confirmar.
+
+
+Posibles endopoins de 3eros
+ Ver si el servicio, donde se le pasa datos del contacto, es desarrollado por otro equipo... o nos inventamos uno. ABM
+ Servicio q recibe los pagos y valida datos.
+ 
+
+
+	
+	
+Pagos Online   X
+	que necesito?
+	Reutilizar 
+		-> servicio de validacion de transferencia
+		-> reutilizar el servicio de alta del producto con el q voy a pagar
+		
+	
+		
+		MOnto
+		Cuentas
+		Servicio
+		
+Restriccion, primera vuelta, solo se realizaron pagos de servicios con el dinero existente en la cuenta de la billetera
+
+
+3 endpoints X ms
+
+
+		
