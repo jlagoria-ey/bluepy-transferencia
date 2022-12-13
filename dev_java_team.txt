@@ -5,21 +5,20 @@ Q necesito?
 	el monto.
 		-> elegir mi cuenta de donde se debita
 			
-	datos a quien envio
+	datos a quien envio -> Restriccion, esto es tarea de otro sector.
 		-> un contacto existente
 		-> un nuevo contacto	
 		
 	-> Inmediatas
-	-> Programadas
+	-> Programadas -> Deberia existir un proceso para que tome las transferencias y realice el pago
 	
 Restriccion
 -> Solo se permite transferencia de dinero que esta de manera virtual en nuetra cuenta!
--> NO se acepta pagos o transferencias con cryptomonedas. Solamente se utilizara como moneda de intercambio/pago billetitos de colores argentinos
+-> No se acepta pagos o transferencias con cryptomonedas. Solamente se utilizara como moneda de intercambio/pago billetitos de colores argentinos
 
-endpoint bluepy transferencia ->		reutlizar una que ya existe 			- 					Historico de transferencia
-									    crear una nueva transferencia		    -> Agregar un nuevo contacto con info (cuenta bancaria o billetera)    
-																								/ validar q existe y respete cierto formato
-																			    -> Utilizar ya un contacto ya definido.
+endpoint bluepy transferencia ->		reutlizar una que ya existe, apartid de una ya existente -> Historico de transferencia (datos de historico)
+						crear una nueva transferencia -> Agregar un nuevo contacto con info (cuenta bancaria o billetera)    
+																								/ validar q existe y respete cierto formato														    -> Utilizar ya un contacto ya definido.
 
 
 
@@ -36,16 +35,27 @@ Posibles endopoins de 3eros
 	
 	
 Pagos Online   X
+	Restriccion:
+		No deberiamos dar de alta datos de cuenta -> Agrega esos datos!.
+	
+	En el listado de medios de pago, aparece la cuenta de la billetera.
+		
 	que necesito?
+		Para hacer el pago
+			-> Cuenta/tarjeta donde sale el dinero
+			-> monto mayor 0
+			-> el servicio/proveedor al q se hara el pago.
 	Reutilizar 
 		-> servicio de validacion de transferencia
 		-> reutilizar el servicio de alta del producto con el q voy a pagar
-		
-	
+			
 		
 		MOnto
 		Cuentas
+			-> API de 3ro para obtener cuentas declaradas
 		Servicio
+			-> APi FAKE de servicio, de respuesta.
+			-> A tener en cuenta, Listo de servicio disponibles (para validar nuevos servicios disponibles) -> usar cola de mensajes para agregar nuevo servicio. 
 		
 Restriccion, primera vuelta, solo se realizaron pagos de servicios con el dinero existente en la cuenta de la billetera
 
