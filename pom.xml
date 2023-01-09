@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.project.ey</groupId>
-	<artifactId>bluepy</artifactId>
+	<artifactId>bluepy-trasnfer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bluepy</name>
+	<name>Transferencia</name>
 	<description>Project Bluepy for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
