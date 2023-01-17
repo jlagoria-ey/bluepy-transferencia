@@ -1,4 +1,4 @@
-package com.project.ey.bluepy.transfer;
+package com.project.ey.bluepy.transfer.config;
 
 import com.project.ey.bluepy.transfer.batch.item.UserWriter;
 import com.project.ey.bluepy.transfer.batch.item.procesor.UserProcessor;

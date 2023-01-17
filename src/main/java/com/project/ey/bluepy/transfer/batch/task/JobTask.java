@@ -17,7 +17,7 @@ public class JobTask {
     @Autowired
     private Job job;
 
-    @Scheduled(fixedRate = 10000)
+    //@Scheduled(fixedRate = 10000)
     public void executeJob() throws Exception{
         JobParameters jobParameters = new JobParametersBuilder()
                 .addString("jobID", String.valueOf(System.currentTimeMillis()))
