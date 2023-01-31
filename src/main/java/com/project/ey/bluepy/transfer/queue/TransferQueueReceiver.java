@@ -18,7 +18,7 @@ public class TransferQueueReceiver {
     @Autowired
     UserService userService;
 
-    @RabbitListener(queues = "${bluepy.queue.name}")
+    @RabbitListener(queues = "${bluepy.queue.name}",autoStartup = "false")
     public void receive(@Payload User user) {
         Optional<User> userFind = userService.findUserByIdPersona(user.getPersonaNumber());
 

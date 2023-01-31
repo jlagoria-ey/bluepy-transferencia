@@ -18,11 +18,14 @@ public class Account implements Serializable {
     private Float amount;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name="activa")
     private Boolean activa;
+
+    @Column(name ="numero_cuenta")
+    private Long accountNumber;
 
     public UUID getId() {
         return id;
@@ -54,5 +57,13 @@ public class Account implements Serializable {
 
     public void setActiva(Boolean activa) {
         this.activa = activa;
+    }
+
+    public Long getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(Long accountNumber) {
+        this.accountNumber = accountNumber;
     }
 }

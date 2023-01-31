@@ -1,6 +1,6 @@
 package com.project.ey.bluepy.transfer.controllers;
 
-import com.project.ey.bluepy.transfer.dtos.TransferDto;
+import com.project.ey.bluepy.transfer.dtos.TransferApiDto;
 import com.project.ey.bluepy.transfer.entities.Transfer;
 import com.project.ey.bluepy.transfer.services.TransferService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ public class TransferController {
     @PostMapping(path = "transfer",
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Transfer> saveTransfer(@RequestBody TransferDto transferDto) throws ServerException {
+    public ResponseEntity<Transfer> saveTransfer(@RequestBody TransferApiDto transferApiDto) throws ServerException {
 
-        Transfer transfer = transferService.doTransfer(transferDto.getAccountRecivierNumber(), transferDto.getAccountSenderNumber(), transferDto.getAmount());
+        Transfer transfer = transferService.doTransfer(transferApiDto.getAccountRecivierNumber(), transferApiDto.getAccountSenderNumber(), transferApiDto.getAmount());
 
         if (transfer == null) {
             throw new ServerException("Error de datos");

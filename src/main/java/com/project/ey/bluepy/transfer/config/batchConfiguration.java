@@ -1,11 +1,10 @@
 package com.project.ey.bluepy.transfer.config;
 
-import com.project.ey.bluepy.transfer.batch.item.UserWriter;
-import com.project.ey.bluepy.transfer.batch.item.procesor.UserProcessor;
-import com.project.ey.bluepy.transfer.batch.item.reader.RESTUserReader;
+import com.project.ey.bluepy.transfer.batch.item.procesor.TransferProcessor;
+import com.project.ey.bluepy.transfer.batch.item.reader.TransferReader;
+import com.project.ey.bluepy.transfer.batch.item.writer.TransferWriter;
 import com.project.ey.bluepy.transfer.batch.listener.JobListener;
-import com.project.ey.bluepy.transfer.dtos.UserDTO;
-import com.project.ey.bluepy.transfer.entities.User;
+import com.project.ey.bluepy.transfer.entities.Transfer;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -27,23 +26,8 @@ public class batchConfiguration {
     public StepBuilderFactory stepBuilderFactory;
 
     @Bean
-    public RESTUserReader reader(){
-        return new RESTUserReader();
-    }
-
-    @Bean
-    public UserProcessor processor() {
-        return new UserProcessor();
-    }
-
-    @Bean
-    public UserWriter writer(){
-        return  new UserWriter();
-    }
-
-    @Bean
-    public Job ImportUserJob(JobListener listener, Step step1) {
-        return jobBuilderFactory.get("importUserJob")
+    public Job ExportTransferJob(JobListener listener, Step step1) {
+        return jobBuilderFactory.get("exportTransferJob")
                 .incrementer(new RunIdIncrementer())
                 .listener(listener)
                 .flow(step1)
@@ -52,9 +36,23 @@ public class batchConfiguration {
     }
 
     @Bean
+    public TransferReader reader(){
+        return new TransferReader();
+    }
+
+    @Bean
+    public TransferProcessor processor(){
+        return  new TransferProcessor();
+    }
+
+    @Bean
+    public TransferWriter writer(){
+        return new TransferWriter();
+    }
+    @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                .<UserDTO, User> chunk(5) // procesa en bloques de 5
+                .<Transfer, Transfer> chunk(5) // procesa en bloques de 5
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())

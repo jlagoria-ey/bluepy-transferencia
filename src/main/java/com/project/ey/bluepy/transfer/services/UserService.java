@@ -5,6 +5,7 @@ import com.project.ey.bluepy.transfer.entities.User;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface UserService {
 
@@ -12,7 +13,7 @@ public interface UserService {
 
     List<UserDTO> findAllUsersFromAPI();
 
-    Optional<User> findUserById(Long id);
+    Optional<User> findUserById(UUID id);
 
     Optional<User> findUserByIdPersona(Long id_persona);
 

@@ -1,12 +1,15 @@
 package com.project.ey.bluepy.transfer.dtos;
 
-public class TransferDto {
+public class TransferApiDto {
 
     private Float amount;
     private Long accountRecivierNumber;
     private Long accountSenderNumber;
 
-    public TransferDto(Float amount, Long accountRecivierNumber, Long accountSenderNumber) {
+    public TransferApiDto() {
+    }
+
+    public TransferApiDto(Float amount, Long accountRecivierNumber, Long accountSenderNumber) {
         this.amount = amount;
         this.accountRecivierNumber = accountRecivierNumber;
         this.accountSenderNumber = accountSenderNumber;

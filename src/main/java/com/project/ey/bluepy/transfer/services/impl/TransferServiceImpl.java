@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,8 +24,8 @@ public class TransferServiceImpl implements TransferService {
     @Override
     public Transfer doTransfer(Long accountReceiverNumber, Long accountSenderNumber, Float amount) {
 
-        Optional<Account> accountReceiverOpt = accountService.findAccountById(accountReceiverNumber);
-        Optional<Account> accountSenderOpt = accountService.findAccountById(accountSenderNumber);
+        Optional<Account> accountReceiverOpt = accountService.getAccountByNumber(accountReceiverNumber);
+        Optional<Account> accountSenderOpt = accountService.getAccountByNumber(accountSenderNumber);
 
         if(!accountReceiverOpt.isPresent() || !accountSenderOpt.isPresent()){
             return null;
@@ -47,5 +48,10 @@ public class TransferServiceImpl implements TransferService {
         }
 
         return null;
+    }
+
+    @Override
+    public List<Transfer> findAllTransfer() {
+        return transferRepository.findAll();
     }
 }

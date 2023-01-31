@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -15,15 +16,20 @@ public class AccountServiceImpl implements AccountService {
     AccountRepository accountRepository;
 
     @Override
-    public Optional<Account> findAccountById(Long id) {
+    public Optional<Account> findAccountById(UUID id) {
         return accountRepository.findById(id);
     }
 
     @Override
-    public Boolean AccountExistById(Long id) {
+    public Boolean AccountExistById(UUID id) {
         return accountRepository.existsById(id);
     }
 
     @Override
     public Account saveAccount(Account account) { return accountRepository.save(account);}
+
+    @Override
+    public Optional<Account> getAccountByNumber(Long accountNumber) {
+        return accountRepository.findAccountByAccountNumber(accountNumber);
+    }
 }
